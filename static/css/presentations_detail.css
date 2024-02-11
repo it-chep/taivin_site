@@ -1,0 +1,70 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #040509;
+    color: #ffffff;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.presentation_company {
+    text-align: center;
+}
+
+.main_banner img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 40px;
+}
+
+.stage {
+    margin-bottom: 50px;
+}
+
+.stage-header {
+    color: #00A3FF;
+    margin-bottom: 10px;
+}
+
+.stage-content {
+    background-color: #001A33;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.font-sample {
+    font-family: 'Proxima Nova', 'Arial', sans-serif;
+}
+
+.color-sample {
+    width: 50px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.color-blue {
+    background-color: #00A3FF;
+}
+
+.color-black {
+    background-color: #000000;
+}
+
+.slide-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.slide {
+    background-color: #002A80;
+    padding: 20px;
+    border-radius: 5px;
+    color: #ffffff;
+}

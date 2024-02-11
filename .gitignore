@@ -1,0 +1,13 @@
+*.sqlite3
+*.log
+.DS_Store
+.idea
+.project
+.pydevproject
+.vscode
+.devcontainer
+.venv
+
+# Python-related ignores
+*.pyc
+*.pyo

@@ -1,0 +1,461 @@
+/* Подключение шрифта TT Travels для различных начертаний и стилей */
+@font-face {
+    font-family: 'TT Travels';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/base/TT Travels-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TT Travels';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../fonts/base/TT Travels-Italic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TT Travels';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/base/TT Travels-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TT Travels';
+    font-style: italic;
+    font-weight: 500;
+    src: url('../fonts/base/TT Travels-MediumItalic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TT Travels';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/base/TT Travels-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TT Travels';
+    font-style: italic;
+    font-weight: 700;
+    src: url('../fonts/base/TT Travels-BoldItalic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TT Travels';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../fonts/base/TT Travels-ExtraBold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TT Travels';
+    font-style: italic;
+    font-weight: 800;
+    src: url('../fonts/base/TT Travels-ExtraBoldItalic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TT Travels';
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/base/TT Travels-Black.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TT Travels';
+    font-style: italic;
+    font-weight: 900;
+    src: url('../fonts/base/TT Travels-BlackItalic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TT Travels';
+    font-style: normal;
+    font-weight: 200;
+    src: url('../fonts/base/TT Travels-ExtraLight.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TT Travels';
+    font-style: italic;
+    font-weight: 200;
+    src: url('../fonts/base/TT Travels-ExtraLightItalic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TT Travels';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/base/TT Travels-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TT Travels';
+    font-style: italic;
+    font-weight: 300;
+    src: url('../fonts/base/TT Travels-LightItalic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TT Travels';
+    font-style: normal;
+    font-weight: 100;
+    src: url('../fonts/base/TT Travels-Thin.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TT Travels';
+    font-style: italic;
+    font-weight: 100;
+    src: url('../fonts/base/TT Travels-ThinItalic.otf') format('opentype');
+}
+
+/* Подключение шрифта для DemiBold */
+@font-face {
+    font-family: 'TT Travels';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/base/TT Travels-DemiBold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TT Travels';
+    font-style: italic;
+    font-weight: 600;
+    src: url('../fonts/base/TT Travels-DemiBoldItalic.otf') format('opentype');
+}
+
+body {
+    font-family: 'TT Travels', sans-serif;
+    background-color: #040509;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+
+.main_page_container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.first-container {
+    width: 100%;
+    height: 1000px;
+    background-image: url("../images/start_main.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.portfolio {
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    top: 418px;
+    font-size: 140px;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+}
+
+.line {
+    flex: 1;
+    height: 2px;
+    background-color: #888888;
+    margin: 0 10px;
+    color: #FFFFFF;
+}
+
+.title {
+    text-align: center;
+    white-space: nowrap;
+    padding: 0 10px;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 38.39px;
+    font-style: normal;
+    letter-spacing: 9px;
+}
+
+/*---------------------------*/
+
+.video-background {
+    position: relative;
+    overflow: hidden;
+}
+
+#bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translate(-50%, -50%);
+}
+
+.content {
+    position: relative;
+    z-index: 100;
+}
+
+/*---------------------------*/
+.arts-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px;
+    justify-content: center;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.arts-head {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.arts-item {
+    width: calc(50% - 20px);
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для плиток, если нужно */
+    overflow: hidden;
+}
+
+.arts-item img {
+    width: 100%;
+    display: block; /* Убираем стандартные отступы для изображений */
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Плавное увеличение изображения при наведении */
+}
+
+.arts-item:hover img {
+    transform: scale(1.05); /* Увеличение изображения при наведении */
+}
+
+/*---------------------------*/
+.preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px;
+    justify-content: center;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.preview-head {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.preview-item {
+    width: calc(50% - 20px);
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для плиток, если нужно */
+    overflow: hidden;
+}
+
+.preview-item img {
+    width: 100%;
+    display: block; /* Убираем стандартные отступы для изображений */
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Плавное увеличение изображения при наведении */
+}
+
+.preview-item:hover img {
+    transform: scale(1.05); /* Увеличение изображения при наведении */
+}
+
+/*---------------------------*/
+.creatives-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px;
+    justify-content: center;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.creatives-head {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.creatives-item {
+    width: calc(33% - 20px);
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для плиток, если нужно */
+    overflow: hidden;
+}
+
+.creatives-item img {
+    width: 100%;
+    display: block; /* Убираем стандартные отступы для изображений */
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Плавное увеличение изображения при наведении */
+}
+
+.creatives-item:hover img {
+    transform: scale(1.05); /* Увеличение изображения при наведении */
+}
+
+/*---------------------------*/
+.presentations-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px;
+    justify-content: center;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.presentation-item {
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для плиток, если нужно */
+    overflow: hidden;
+}
+
+.presentation-item img {
+    width: 100%;
+    display: block; /* Убираем стандартные отступы для изображений */
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Плавное увеличение изображения при наведении */
+}
+
+/*---------------------------*/
+
+.banners-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px;
+    justify-content: center; /* Центрируем элементы внутри контейнера */
+    max-width: 90%; /* Установите это значение в соответствии с желаемой шириной контейнера */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.banners-head {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.horizontal-banner {
+    width: 100%;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.vertical-banner {
+    width: 25%;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.square-banner {
+    width: 25%;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.banners-item {
+    border-radius: 20px;
+}
+
+.banners-item img {
+    width: 100%;
+    display: block; /* Убираем стандартные отступы для изображений */
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Плавное увеличение изображения при наведении */
+}
+
+.banners-item:hover img {
+    transform: scale(1.05); /* Увеличение изображения при наведении */
+}
+
+/*-----------------------------------*/
+.presentation-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.presentation-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.info {
+    position: absolute;
+    bottom: 10px; /* Adjust this value as needed to position from the bottom */
+    left: 0; /* Align to the left edge of the presentation item */
+    right: 0; /* Align to the right edge of the presentation item */
+    text-align: right; /* Align text to the right */
+    transform: translateY(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0; /* Set to 0 by default */
+    width: 100%; /* Span the full width of the presentation item */
+}
+
+.presentation-item:hover .info {
+    transform: translateY(0);
+    opacity: 1; /* Show on hover */
+}
+
+.learn-more-container {
+    margin-right: 50px;
+    z-index: 900;
+}
+
+.learn-more-container .learn-more {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.5s ease;
+}
+
+.info svg {
+    transition: fill 0.5s ease;
+}
+
+.presentation-item:hover .info {
+    transform: translateY(0);
+}
+
+.presentation-item:hover .learn-more {
+    opacity: 1;
+}
+
+.learn-more h3 {
+    display: inline;
+    margin: 0;
+}

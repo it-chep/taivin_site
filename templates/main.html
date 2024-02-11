@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+    {{ block.super }}
+    <link href="{% static 'css/main.css' %}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Портфолио{% endblock %}
+
+{% block header %}
+    {% include "header.html" %}
+{% endblock header %}
+
+{% block extra_head %}
+    <script src="{% static 'js/jquery-3.6.4.min.js' %}"></script>
+    <script src="{% static 'js/main_page.js' %}"></script>
+{% endblock %}
+{% block content %}
+    <div class="first-container">
+{#        <p class="portfolio">#}
+{#            PORTFOLIO#}
+{#        </p>#}
+        <div class="video-background">
+            <video playsinline autoplay muted loop id="bg-video">
+                <source src="path-to-your-video.mp4" type="video/mp4">
+            </video>
+
+        </div>
+    </div>
+    <div class="main_page_container">
+        <div id="arts">
+            <div class="title-container">
+                <div class="line"></div>
+                <h1 class="title">ARTS</h1>
+                <div class="line"></div>
+            </div>
+            <div class="arts-container">
+                {% for art in arts %}
+                    <div class="arts-item">
+                        <img class="tilt" src="media/{{ art.preview }}" data-color="{{ art.color }}">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div id="preview">
+            <div class="title-container">
+                <div class="line"></div>
+                <h1 class="title">PREVIEW</h1>
+                <div class="line"></div>
+            </div>
+
+            <div class="preview-container">
+
+                {% for preview in previews %}
+                    <div class="preview-item">
+                        <img class="tilt" src="media/{{ preview.preview }}">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div id="presentations">
+            <div class="title-container">
+                <div class="line"></div>
+                <h1 class="title">PRESENTATIONS</h1>
+                <div class="line"></div>
+            </div>
+            <div class="presentations-container">
+                {% for presentation in presentations %}
+                    <div class="presentation-item">
+                        <a href="{% url 'presentation_detail' presentation.slug_name %}">
+                            <img src="media/{{ presentation.main_banner }}" alt="Presentation Image">
+                            <div class="info" >
+                                <div class="learn-more-container" data-bgcolor="{{ presentation.main_bg_color }}">
+                                    <a href="#" class="learn-more"><h3>
+                                        learn
+                                        more</h3></a>
+                                    <svg width="23" height="23" viewBox="0 0 23 23" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.585786 19.5858C-0.195262 20.3668 -0.195262 21.6332 0.585786 22.4142C1.36684 23.1953 2.63316 23.1953 3.41421 22.4142L0.585786 19.5858ZM23 2C23 0.895429 22.1046 -1.81001e-06 21 -9.67075e-07L3 -1.38854e-06C1.89543 -1.38854e-06 1 0.895429 1 2C1 3.10457 1.89543 4 3 4L19 4L19 20C19 21.1046 19.8954 22 21 22C22.1046 22 23 21.1046 23 20L23 2ZM3.41421 22.4142L22.4142 3.41421L19.5858 0.585785L0.585786 19.5858L3.41421 22.4142Z"
+                                              fill="white"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div id="creatives">
+                <div class="title-container">
+                    <div class="line"></div>
+                    <h1 class="title">CREATIVES</h1>
+                    <div class="line"></div>
+                </div>
+                <div class="creatives-container">
+                    {% for creative in creatives %}
+                        <div class="creatives-item">
+                            <img class="tilt" src="media/{{ creative.creative }}">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div id="banners">
+                <div class="title-container">
+                    <div class="line"></div>
+                    <h1 class="title">BANNERS</h1>
+                    <div class="line"></div>
+                </div>
+                <div class="banners-container">
+                    {% for banner in banners %}
+
+                        <div class="banners-item {% if banner.banner_type == banner.BANNERS_TYPES.horizontal %}horizontal-banner{% elif banner.banner_type == banner.BANNERS_TYPES.vertical %}vertical-banner{% else %}square-banner{% endif %} ">
+                            <img src="media/{{ banner.banner }}">
+                        </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div id="web-sites">
+                <div class="title-container">
+                    <div class="line"></div>
+                    <h1 class="title">WEB-SITES</h1>
+                    <div class="line"></div>
+                </div>
+                <div class="web-sites-container">
+                    {% for web_site in web_sites %}
+
+                        <div class="web-sites-item {% if banner.banner_type == banner.BANNERS_TYPES.horizontal %}horizontal-banner{% elif banner.banner_type == banner.BANNERS_TYPES.vertical %}vertical-banner{% else %}square-banner{% endif %} ">
+                            <img src="media/{{ banner.banner }}">
+                        </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+{% endblock %}

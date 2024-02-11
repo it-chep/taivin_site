@@ -1,0 +1,46 @@
+.presentation-item {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.presentation-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.presentation-list div {
+    background-color: #112240; /* Card background color */
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px; /* Width of each card */
+    margin: 10px; /* Margin around each card */
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Box-shadow for a subtle 3D effect */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+/* Styling the images to fit the cards */
+.presentation-list img {
+    width: 100%;
+    height: auto;
+    border-bottom: 4px solid #00A3FF; /* Blue border at the bottom of the image */
+}
+
+/* Hover effect for cards */
+.presentation-list div:hover {
+    transform: translateY(-10px); /* Move the card up slightly on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .presentation-list div {
+        width: 45%; /* Adjust card width for tablet devices */
+    }
+}
+
+@media (max-width: 768px) {
+    .presentation-list div {
+        width: 90%; /* Adjust card width for mobile devices */
+    }
+}

@@ -1,0 +1,39 @@
+.navbar-container {
+    width: 100%;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    z-index: 9999;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.navbar-items-container {
+    border-radius: 9px;
+    padding: 16px;
+    background: #74B1FF1F;
+    transition: background-color, color 0.7s ease;
+    backdrop-filter: blur(10px);
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 16px 20px;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: background-color, color 0.7s ease;
+}
+
+.navbar-items-container:hover a{
+    color: #FFFFFF4D;
+}
+
+.navbar a:hover {
+    color: #FFFFFF;
+    background-color: #247EF2;
+}

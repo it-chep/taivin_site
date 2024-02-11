@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+{% block styles %}
+    <link type="text/css" rel="stylesheet" href="{% static "css/presentations_detail.css" %}">
+{% endblock %}
+{% block content %}
+    
+    <div class="container">
+        <h1 class="presentation_company">Presentation for <a href="{{ customer.link }}">{{ customer.name }}</a></h1>
+        <div class="main_banner">
+            <img src="media/{{ main_banner }}" alt="Main Banner">
+        </div>
+
+        <div class="stage">
+            <h2 class="stage-header">Stages of Development</h2>
+            <div class="stage-content">
+                <h3>Briefing</h3>
+                <p>The company already has a brandbook, so I was provided with fonts, corporate colors, and photos of
+                    the
+                    speaker...</p>
+            </div>
+        </div>
+
+        <div class="stage">
+            <h2 class="stage-header">Fonts</h2>
+            <div class="stage-content font-sample">
+                <!-- Font samples -->
+                <span>Droid Sans</span>
+                <span>Proxima Nova</span>
+                <span>Circe</span>
+            </div>
+        </div>
+
+        <div class="stage">
+            <h2 class="stage-header">Colors</h2>
+            <div class="stage-content">
+                <!-- Color samples -->
+                <div class="color-sample color-blue"></div>
+                <div class="color-sample color-black"></div>
+            </div>
+        </div>
+
+        <div class="stage">
+            <h2 class="stage-header">Slides</h2>
+            <div class="stage-content slide-container">
+                <!-- Slides -->
+                <div class="slide">Slide 1</div>
+                <div class="slide">Slide 2</div>
+                <!-- Repeat for each slide -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
