@@ -7,7 +7,9 @@
 .vscode
 .devcontainer
 .venv
-
+.env
+/dumps
 # Python-related ignores
 *.pyc
 *.pyo
+*.file
