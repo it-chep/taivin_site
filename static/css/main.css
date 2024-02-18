@@ -237,6 +237,7 @@
     width: 100%;
     display: block;
     height: auto;
+ border-radius: 20px;
     transition: transform 0.3s ease-in-out; /* Плавное увеличение изображения при наведении */
 }
 
@@ -246,6 +247,7 @@
 }
 
 .info {
+     border-radius: 20px;
     position: absolute;
     bottom: 10px;
     left: 0;
@@ -298,10 +300,11 @@
     display: flex;
     flex-wrap: wrap;
     margin: -10px;
-    justify-content: center; /* Центрируем элементы внутри контейнера */
+    justify-content: space-between;
     max-width: 90%; /* Установите это значение в соответствии с желаемой шириной контейнера */
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 100px;
 }
 
 .banners-head {
@@ -319,20 +322,21 @@
 }
 
 .vertical-banner {
-    width: 25%;
-    margin: 10px;
+    width: 32%;
+    margin: 5px;
     overflow: hidden;
 }
 
 .square-banner {
-    width: 25%;
-    margin: 10px;
+    width: 32%;
+    margin: 5px;
     overflow: hidden;
 }
 
 .banners-item {
     border-radius: 20px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 .banners-item img {
