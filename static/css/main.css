@@ -301,7 +301,7 @@
     flex-wrap: wrap;
     margin: -10px;
     justify-content: space-between;
-    max-width: 90%; /* Установите это значение в соответствии с желаемой шириной контейнера */
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 100px;
