@@ -1,140 +1,3 @@
-/* Подключение шрифта TT Travels для различных начертаний и стилей */
-@font-face {
-    font-family: 'TT Travels';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/base/TT Travels-Regular.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'TT Travels';
-    font-style: italic;
-    font-weight: 400;
-    src: url('../fonts/base/TT Travels-Italic.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'TT Travels';
-    font-style: normal;
-    font-weight: 500;
-    src: url('../fonts/base/TT Travels-Medium.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'TT Travels';
-    font-style: italic;
-    font-weight: 500;
-    src: url('../fonts/base/TT Travels-MediumItalic.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'TT Travels';
-    font-style: normal;
-    font-weight: 700;
-    src: url('../fonts/base/TT Travels-Bold.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'TT Travels';
-    font-style: italic;
-    font-weight: 700;
-    src: url('../fonts/base/TT Travels-BoldItalic.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'TT Travels';
-    font-style: normal;
-    font-weight: 800;
-    src: url('../fonts/base/TT Travels-ExtraBold.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'TT Travels';
-    font-style: italic;
-    font-weight: 800;
-    src: url('../fonts/base/TT Travels-ExtraBoldItalic.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'TT Travels';
-    font-style: normal;
-    font-weight: 900;
-    src: url('../fonts/base/TT Travels-Black.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'TT Travels';
-    font-style: italic;
-    font-weight: 900;
-    src: url('../fonts/base/TT Travels-BlackItalic.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'TT Travels';
-    font-style: normal;
-    font-weight: 200;
-    src: url('../fonts/base/TT Travels-ExtraLight.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'TT Travels';
-    font-style: italic;
-    font-weight: 200;
-    src: url('../fonts/base/TT Travels-ExtraLightItalic.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'TT Travels';
-    font-style: normal;
-    font-weight: 300;
-    src: url('../fonts/base/TT Travels-Light.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'TT Travels';
-    font-style: italic;
-    font-weight: 300;
-    src: url('../fonts/base/TT Travels-LightItalic.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'TT Travels';
-    font-style: normal;
-    font-weight: 100;
-    src: url('../fonts/base/TT Travels-Thin.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'TT Travels';
-    font-style: italic;
-    font-weight: 100;
-    src: url('../fonts/base/TT Travels-ThinItalic.otf') format('opentype');
-}
-
-/* Подключение шрифта для DemiBold */
-@font-face {
-    font-family: 'TT Travels';
-    font-style: normal;
-    font-weight: 600;
-    src: url('../fonts/base/TT Travels-DemiBold.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'TT Travels';
-    font-style: italic;
-    font-weight: 600;
-    src: url('../fonts/base/TT Travels-DemiBoldItalic.otf') format('opentype');
-}
-
-body {
-    font-family: 'TT Travels', sans-serif;
-    background-color: #040509;
-    color: white;
-    margin: 0;
-    padding: 0;
-}
-
-
 .main_page_container {
     width: 90%;
     margin: 0 auto;
@@ -149,7 +12,24 @@ body {
     background-position: center;
 }
 
+/*----------------------------------------------------------------------*/
 
+.scroll-down-container {
+    text-align: center;
+    margin-top: 800px;
+}
+
+.scroll-down-arrows-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scroll-down-arrows-container svg {
+    margin-top: 10px;
+}
+
+/*----------------------------------------------------------------------*/
 .portfolio {
     text-align: center;
     margin: 0 auto;
@@ -229,6 +109,7 @@ body {
 }
 
 .arts-item {
+    cursor: pointer;
     width: calc(50% - 20px);
     margin: 10px;
     border-radius: 20px;
@@ -268,6 +149,7 @@ body {
 .preview-item {
     width: calc(50% - 20px);
     margin: 10px;
+    cursor: pointer;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для плиток, если нужно */
     overflow: hidden;
@@ -303,6 +185,7 @@ body {
 }
 
 .creatives-item {
+    cursor: pointer;
     width: calc(33% - 20px);
     margin: 10px;
     border-radius: 20px;
@@ -340,12 +223,74 @@ body {
     overflow: hidden;
 }
 
-.presentation-item img {
+.presentation-item a img {
     width: 100%;
+    border-radius: 20px;
     display: block; /* Убираем стандартные отступы для изображений */
     height: auto;
     transition: transform 0.3s ease-in-out; /* Плавное увеличение изображения при наведении */
 }
+
+.presentation-item {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Плавное увеличение изображения при наведении */
+}
+
+.presentation-item:hover a img {
+    transform: scale(1.05);
+    border-radius: 20px;
+}
+
+.info {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: right;
+    transform: translateY(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    width: 100%;
+}
+
+.presentation-item:hover .info {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.learn-more-container {
+    margin-right: 50px;
+    z-index: 900;
+}
+
+.learn-more-container .learn-more {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color 0.5s ease;
+}
+
+.info svg {
+    transition: fill 0.5s ease;
+}
+
+.presentation-item:hover .info {
+    transform: translateY(0);
+}
+
+.presentation-item:hover .learn-more {
+    opacity: 1;
+}
+
+.learn-more p {
+    font-weight: 500;
+}
+
 
 /*---------------------------*/
 
@@ -387,6 +332,7 @@ body {
 
 .banners-item {
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .banners-item img {
@@ -401,61 +347,3 @@ body {
 }
 
 /*-----------------------------------*/
-.presentation-item {
-    position: relative;
-    overflow: hidden;
-}
-
-.presentation-item img {
-    width: 100%;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.info {
-    position: absolute;
-    bottom: 10px; /* Adjust this value as needed to position from the bottom */
-    left: 0; /* Align to the left edge of the presentation item */
-    right: 0; /* Align to the right edge of the presentation item */
-    text-align: right; /* Align text to the right */
-    transform: translateY(100%);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    opacity: 0; /* Set to 0 by default */
-    width: 100%; /* Span the full width of the presentation item */
-}
-
-.presentation-item:hover .info {
-    transform: translateY(0);
-    opacity: 1; /* Show on hover */
-}
-
-.learn-more-container {
-    margin-right: 50px;
-    z-index: 900;
-}
-
-.learn-more-container .learn-more {
-    display: inline-block;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.5s ease;
-}
-
-.info svg {
-    transition: fill 0.5s ease;
-}
-
-.presentation-item:hover .info {
-    transform: translateY(0);
-}
-
-.presentation-item:hover .learn-more {
-    opacity: 1;
-}
-
-.learn-more h3 {
-    display: inline;
-    margin: 0;
-}

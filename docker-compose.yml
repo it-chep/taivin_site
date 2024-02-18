@@ -45,6 +45,7 @@ services:
     volumes:
       - ${MEDIA_DIR}:/app/taivin_site/media
 
+# TODO: том проверить
 networks:
   taivin-network:
     driver: bridge

@@ -6,13 +6,27 @@
 <div class="navbar-container">
     <div class="navbar">
         <div class="navbar-items-container">
-            <a href="#arts">Arts</a>
-            <a href="#preview">Preview</a>
-            <a href="#presentations">Presentations</a>
-            <a href="#creatives">Creatives</a>
-            <a href="#banners">Banners</a>
-            <a href="#web-sites">Web-sites</a>
-            <a href="#motion">Motion</a>
+            {% if arts %}
+                <a href="#arts">Arts</a>
+            {% endif %}
+            {% if previews %}
+                <a href="#preview">Preview</a>
+            {% endif %}
+            {% if presentations %}
+                <a href="#presentations">Presentations</a>
+            {% endif %}
+            {% if creatives %}
+                <a href="#creatives">Creatives</a>
+            {% endif %}
+            {% if banners %}
+                <a href="#banners">Banners</a>
+            {% endif %}
+            {% if web_sites %}
+                <a href="#web-sites">Web-sites</a>
+            {% endif %}
+            {% if motions %}
+                <a href="#motion">Motion</a>
+            {% endif %}
         </div>
     </div>
 </div>

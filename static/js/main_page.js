@@ -26,6 +26,31 @@ $(document).ready(function () {
             infoElement.style.backgroundColor = ''; // или можно указать другой цвет
         });
     });
+
+    const contentItems = document.querySelectorAll('.content-item');
+
+    contentItems.forEach(function (contentItem) {
+        contentItem.addEventListener('click', function () {
+            const modalId = this.dataset['modal'];
+            const $modal = $(`#${modalId}`);
+            const imgWidth = $(contentItem).find('img').width();
+            const imgHeight = $(contentItem).find('img').height();
+            if (imgWidth <= imgHeight) {
+                $modal.children().css('width', '')
+                $('.modal-img').css('max-height', '700px')
+                $modal.children().removeClass('modal-content');
+            }
+            $modal.fadeIn(500);
+            $modal.css('display', 'flex');
+        });
+    });
+
+    const modal = document.querySelectorAll('.modal');
+    modal.forEach(function (modal) {
+        modal.addEventListener('click', function () {
+            $(this).fadeOut(500);
+        });
+    });
 });
 //
 // document.querySelectorAll('.tilt').forEach(item => {

@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView, ListView
-
+from django.http import HttpResponse, JsonResponse
 from taivin_cms.models import *
 
 
@@ -25,11 +25,25 @@ class PresentationDetailView(TemplateView):
     page_title = "Презентация"
 
     def get_context_data(self, **kwargs):
-        presentation = Presentations.objects.filter(slug_name=kwargs.get('slug_name', None)).first()
-        context = super().get_context_data(**kwargs)
-        context['page_title'] = self.page_title + " " + str(presentation.customer.name)
-        context['main_banner'] = presentation.main_banner
-        context['customer'] = presentation.customer
+        presentation = Presentations.objects.prefetch_related(
+            'slides_set',
+            'additionalbenefits_set',
+            'color_set',
+            'fonts_set',
+            'articles_set',
+        ).select_related('customer').filter(
+            slug_name=kwargs.get('slug_name')
+        ).first()
+
+        context = {
+            'page_title': f"{self.page_title} {presentation.customer.name}",
+            'presentation': presentation,
+            'slides': presentation.slides_set.all(),
+            'articles': presentation.articles_set.all(),
+            'benefits': presentation.additionalbenefits_set.all(),
+            'colors': presentation.color_set.all(),
+            'fonts': presentation.fonts_set.all()
+        }
         return context
 
 
@@ -48,3 +62,8 @@ class PresentationListView(ListView):
         presentations = Presentations.objects.all()
         print(presentations)
         return presentations
+
+
+def get_font(request, font_id):
+    font = get_object_or_404(Fonts, id=font_id)
+    return JsonResponse({'font_url': font.font_file.url})
