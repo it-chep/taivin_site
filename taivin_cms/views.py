@@ -38,11 +38,11 @@ class PresentationDetailView(TemplateView):
         context = {
             'page_title': f"{self.page_title} {presentation.customer.name}",
             'presentation': presentation,
-            'slides': presentation.slides_set.all(),
-            'articles': presentation.articles_set.all(),
-            'benefits': presentation.additionalbenefits_set.all(),
-            'colors': presentation.color_set.all(),
-            'fonts': presentation.fonts_set.all()
+            'slides': presentation.slides_set.all().order_by('position'),
+            'articles': presentation.articles_set.all().order_by('position'),
+            'benefits': presentation.additionalbenefits_set.all().order_by('position'),
+            'colors': presentation.color_set.all().order_by('position'),
+            'fonts': presentation.fonts_set.all().order_by('position')
         }
         return context
 
