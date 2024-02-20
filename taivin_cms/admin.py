@@ -1,5 +1,8 @@
 from django.contrib import admin
 from taivin_cms.models import *
+from django.contrib.admin import AdminSite
+from .admin_actions import clear_cache
+from django.urls import path
 
 
 class PresentationAdmin(admin.ModelAdmin):
@@ -29,7 +32,7 @@ class PresentationAdmin(admin.ModelAdmin):
 
 
 class SlideAdmin(admin.ModelAdmin):
-    list_display = ('id', )
+    list_display = ('id',)
 
 
 class CustomerAdmin(admin.ModelAdmin):
@@ -52,12 +55,24 @@ class CreativeAdmin(admin.ModelAdmin):
     list_display = ('id', "name")
 
 
-admin.site.register(Presentations, PresentationAdmin)
-admin.site.register(Slides, SlideAdmin)
-admin.site.register(Arts, ArtsAdmin)
-admin.site.register(Creatives, CreativeAdmin)
-admin.site.register(Customers, CustomerAdmin)
-admin.site.register(Banners, BannerAdmin)
-admin.site.register(Previews, PreviewAdmin)
+class MyAdminSite(AdminSite):
+    index_template = 'admin/index.html'
+
+    def get_urls(self):
+        urls = super().get_urls()
+        custom_urls = [
+            path('clear-cache/', clear_cache, name='clear-cache'),
+        ]
+        return custom_urls + urls
 
 
+# Замените используемый AdminSite на MyAdminSite
+admin_site = MyAdminSite(name='myadmin')
+
+admin_site.register(Presentations, PresentationAdmin)
+admin_site.register(Slides, SlideAdmin)
+admin_site.register(Arts, ArtsAdmin)
+admin_site.register(Creatives, CreativeAdmin)
+admin_site.register(Customers, CustomerAdmin)
+admin_site.register(Banners, BannerAdmin)
+admin_site.register(Previews, PreviewAdmin)

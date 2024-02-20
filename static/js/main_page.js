@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    setTimeout(() => {
+        $('.scroll-down-container').fadeIn(1000);
+    }, 5000);
+
     $('a[href^="#"]').on('click', function (event) {
         event.preventDefault();
         var target = this.hash;
