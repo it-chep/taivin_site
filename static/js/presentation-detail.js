@@ -30,12 +30,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById(elementId).style.fontFamily = `'${fontFamilyName}', sans-serif`;
             })
             .catch(error => {
-                console.error('Error fetching font:', error);
+                return
             });
     }
 
-
-// Example usage:
     const fonts = $('.fonts-item');
     fonts.each(function () {
         const fontID = $(this).data('font-id');
@@ -44,7 +42,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const presentationLink = $('.presentation_company-link');
-    presentationLink.css('color', presentationLink.data()['color']);
+    if (presentationLink.data()) {
+        presentationLink.css('color', presentationLink.data()['color']);
+    }
 
     const counterContainer = $('.article-counter');
     const articleCircle = $('.article-circle');
@@ -53,14 +53,55 @@ document.addEventListener('DOMContentLoaded', function () {
     counterContainer.css('color', counterContainer.data()['textColor'])
 
     const aboutCustomer = $('.about_customer');
-    aboutCustomer.css('color', aboutCustomer.data()['color']);
+    if (aboutCustomer.data()) {
+        aboutCustomer.css('color', aboutCustomer.data()['color']);
+    }
 
     const articleLine = $('.article-line');
-    articleLine.css('background-color', articleLine.data()['color']);
+    if (articleLine.data()) {
+        articleLine.css('background-color', articleLine.data()['color']);
+    }
 
     const fontColorBlock = $('.font-color-block');
-    fontColorBlock.css('border', `${fontColorBlock.data()['color']} 1px solid`);
+    if (fontColorBlock.data()) {
+        fontColorBlock.css('border', `${fontColorBlock.data()['color']} 1px solid`);
+    }
 
     const fontName = $('.font-name');
-    fontName.css('color', fontName.data()['color'])
+    if (fontName.data()) {
+        fontName.css('color', fontName.data()['color'])
+    }
+
+    let colors = document.querySelectorAll('.color-item-container-beautiful')
+    let previousZIndex = 500
+    let previousMarginLeft = 0;
+
+    colors.forEach(function(color, index) {
+        if (index > 0) {
+            let zIndex = previousZIndex - 1;
+            let marginLeft = previousMarginLeft + parseInt(color.offsetWidth || 0) - 30;
+            color.style.width = color.offsetWidth + 10 + 'px'
+            color.style.zIndex = zIndex;
+            color.style.marginLeft = marginLeft + 'px';
+
+            previousZIndex = zIndex;
+            previousMarginLeft = marginLeft;
+        }
+    });
+
+    let articleContentTexts = document.querySelectorAll('.article-content-text');
+
+    articleContentTexts.forEach(function(articleContentText) {
+        let articleLine = articleContentText.closest('.article-item').querySelector('.article-line');
+        let header = articleContentText.closest('.article-item').querySelector('.article-content-header');
+        let headerHeight = 0;
+        if (articleLine) {
+            if (header.clientHeight > 60) {
+                headerHeight = header.clientHeight - 40;
+            }
+
+            let lineHeight = articleContentText.offsetHeight + 60 + headerHeight;
+            articleLine.style.height = lineHeight + 'px';
+        }
+    });
 });

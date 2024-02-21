@@ -28,91 +28,104 @@
             <img src="{{ presentation.main_banner.url }}" alt="Main Banner">
         </div>
         <p class="grey-header">STAGES OF DEVELOPMENT</p>
-        <div class="info-block">
-            <div class="articles-container">
-                {% for article in articles %}
+        <div class="custom-info-block">
+            {% for article in articles %}
+                <div class="info-line">
                     <div class="article-item">
-                        <div class="article-counter-container">
-                            <div class="article-circle">
-                                <p class="article-counter" data-text-color="{{ article.counter_color }}"
-                                   data-color="{{ colors.0.code }}">
-                                    {% if forloop.counter < 10 %}0{% endif %}{{ forloop.counter }}
-                                </p>
-                            </div>
-                            {% if articles|length != forloop.counter %}
-                                <div class="article-line" data-color="{{ colors.0.code }}"></div>
-                            {% endif %}
+                        <div class="article-circle">
+                            <p class="article-counter" data-text-color="{{ article.counter_color }}"
+                               data-color="{{ colors.0.code }}">
+                                {% if forloop.counter < 10 %}0{% endif %}{{ forloop.counter }}
+                            </p>
                         </div>
+                        {% if articles|length != forloop.counter %}
+                            <div class="article-line" data-color="{{ colors.0.code }}">
+                                <svg class="line-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+                        {% endif %}
                         <div class="article-content">
                             <p class="article-content-header">{{ article.header }}</p>
                             <p class="article-content-text">{{ article.text }}</p>
                         </div>
                     </div>
-                {% endfor %}
-            </div>
-            <div class="additional-info">
-                <div class="font-color-block" style="background: {{ presentation.font_color_background }}"
-                     data-color="{{ colors.0.code }}">
-                    <div class="star_span">
-                        <svg width="41" height="41" viewBox="0 0 41 41" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20.5 0L24.7038 16.2962L41 20.5L24.7038 24.7038L20.5 41L16.2962 24.7038L0 20.5L16.2962 16.2962L20.5 0Z"
-                                  fill="{{ colors.0.code }}"/>
-                        </svg>
-                        <p class="font-color-header">FONTS</p>
-                    </div>
-                    <div class="fonts-container">
-                        {% for font in fonts %}
-                            <div class="fonts-item" id="font_{{ font.id }}" data-font-id="{{ font.id }}">
-                                <span class="Aa">Aa</span>
-                                <span class="font-name" data-color="{{ colors.0.code }}">{{ font.name }}</span>
+                    {% comment %}
+                    Делаем хардкод потому что тут 3 этапа работы и они должны быть выровнены
+                    {% endcomment %}
+                    {% if article.position == 1 %}
+                        <div class="font-color-block" style="background: {{ presentation.font_color_background }}"
+                             data-color="{{ colors.0.code }}">
+                            <div class="star_span">
+                                <svg width="41" height="41" viewBox="0 0 41 41" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.5 0L24.7038 16.2962L41 20.5L24.7038 24.7038L20.5 41L16.2962 24.7038L0 20.5L16.2962 16.2962L20.5 0Z"
+                                          fill="{{ colors.0.code }}"/>
+                                </svg>
+                                <p class="font-color-header">FONTS</p>
                             </div>
-                        {% endfor %}
-                    </div>
+                            <div class="fonts-container">
+                                {% for font in fonts %}
+                                    <div class="fonts-item" id="font_{{ font.id }}" data-font-id="{{ font.id }}">
+                                        <span class="Aa">Aa</span>
+                                        <span class="font-name" data-color="{{ colors.0.code }}">{{ font.name }}</span>
+                                    </div>
+                                {% endfor %}
+                            </div>
 
-                    <div class="">
-                        <div class="star_span">
-                            <svg width="41" height="41" viewBox="0 0 41 41" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20.5 0L24.7038 16.2962L41 20.5L24.7038 24.7038L20.5 41L16.2962 24.7038L0 20.5L16.2962 16.2962L20.5 0Z"
-                                      fill="{{ colors.0.code }}"/>
-                            </svg>
-                            <p class="font-color-header">COLORS</p>
+                            <div class="">
+                                <div class="star_span">
+                                    <svg width="41" height="41" viewBox="0 0 41 41" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20.5 0L24.7038 16.2962L41 20.5L24.7038 24.7038L20.5 41L16.2962 24.7038L0 20.5L16.2962 16.2962L20.5 0Z"
+                                              fill="{{ colors.0.code }}"/>
+                                    </svg>
+                                    <p class="font-color-header">COLORS</p>
+                                </div>
+                                <div class="colors-container">
+                                    {% for color in colors %}
+                                        <div class="color-item-container"
+                                             data-color="{{ colors.0.code }}"
+                                             style="color: {{ color.color }}; background: {{ color.code }}; opacity: 0"
+                                        >
+                                            {{ color.code }}
+                                        </div>
+                                        <div class="color-item-container-beautiful"
+                                             data-color="{{ colors.0.code }}"
+                                             style="color: {{ color.color }}; background: {{ color.code }}"
+                                             id="color-item-container-beautiful_{{ forloop.counter }}"
+                                        >
+                                            {{ color.code }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
-                        <div class="colors-container">
-                            {% for color in colors %}
-                                <div class="color-item-container"
-                                     data-color="{{ colors.0.code }}"
-                                     data-all-colors="{{ colors }}"
-                                     style="color: {{ color.color }}; background: {{ color.code }}"
-                                >
-                                    {{ color.code }}
+                    {% endif %}
+                    {% if article.position == 2 %}
+                        <div>
+                            <p class="about_customer" data-color="{{ colors.0.code }}">
+                                {{ presentation.about_customer }}
+                            </p>
+                        </div>
+                    {% endif %}
+                    {% if article.position == 3 %}
+                        <div class="benefits-container">
+                            {% for benefit in benefits %}
+                                <div class="star_span">
+                                    <svg width="41" height="41" viewBox="0 0 41 41" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20.5 0L24.7038 16.2962L41 20.5L24.7038 24.7038L20.5 41L16.2962 24.7038L0 20.5L16.2962 16.2962L20.5 0Z"
+                                              fill="{{ colors.0.code }}"/>
+                                    </svg>
+                                    <p class="benefits-text">{{ benefit.text }}</p>
                                 </div>
                             {% endfor %}
                         </div>
-                    </div>
+                    {% endif %}
                 </div>
-                <div>
-                    <p class="about_customer" data-color="{{ colors.0.code }}">
-                        {{ presentation.about_customer }}
-                    </p>
-                </div>
-                <div class="benefits-container">
-                    {% for benefit in benefits %}
-                        <div class="star_span">
-                            <svg width="41" height="41" viewBox="0 0 41 41" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20.5 0L24.7038 16.2962L41 20.5L24.7038 24.7038L20.5 41L16.2962 24.7038L0 20.5L16.2962 16.2962L20.5 0Z"
-                                      fill="{{ colors.0.code }}"/>
-                            </svg>
-                            <p class="benefits-text">{{ benefit.text }}</p>
-                        </div>
-                    {% endfor %}
-                </div>
-
-            </div>
+            {% endfor %}
         </div>
-
         <div class="slides-block">
             <p class="grey-header">SLIDES</p>
             <div class="slides-container">
