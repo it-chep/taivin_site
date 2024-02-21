@@ -66,7 +66,6 @@ class MyAdminSite(AdminSite):
         return custom_urls + urls
 
 
-# Замените используемый AdminSite на MyAdminSite
 admin_site = MyAdminSite(name='myadmin')
 
 admin_site.register(Presentations, PresentationAdmin)

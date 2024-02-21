@@ -13,3 +13,4 @@
 *.pyc
 *.pyo
 *.file
+/taivin_cms_cache
