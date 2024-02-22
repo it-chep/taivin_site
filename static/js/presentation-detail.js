@@ -113,17 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
             } else if (index === 0 && fontColors.offsetHeight < infoLine.offsetHeight) {
                 articleLine.style.height = infoLine.offsetHeight - (parseFloat(getComputedStyle(articleLine).marginTop))/1.5 + 'px' ;
             }
-
-            // if (header.clientHeight > 60) {
-            //     headerHeight = header.clientHeight - 40;
-            // }
-            //
-            // let lineHeight = articleContentText.offsetHeight + 60 + headerHeight;
-            // articleLine.style.height = lineHeight + 'px';
-            //
-            // if (index === 0 && font_colors){
-            //     articleLine.style.height = font_colors.offsetHeight + articleContentText - 60 + 'px'
-            // }
         }
     });
 });
