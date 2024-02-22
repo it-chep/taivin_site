@@ -1,7 +1,7 @@
 $(document).ready(function () {
     setTimeout(() => {
         $('.scroll-down-container').fadeIn(1000);
-    }, 5000);
+    }, 10000);
 
     $('a[href^="#"]').on('click', function (event) {
         event.preventDefault();

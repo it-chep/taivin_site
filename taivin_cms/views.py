@@ -66,4 +66,13 @@ class PresentationListView(ListView):
 
 def get_font(request, font_id):
     font = get_object_or_404(Fonts, id=font_id)
-    return JsonResponse({'font_url': font.font_file.url})
+    try:
+        description_font_url = font.description_font_file.url
+    except Exception:
+        description_font_url = None
+
+    try:
+        font_url = font.font_file.url
+    except Exception:
+        font_url = None
+    return JsonResponse({'font_url': font_url, 'description_font_url': description_font_url})

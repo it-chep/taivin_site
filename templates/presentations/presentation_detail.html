@@ -54,32 +54,32 @@
                         <div class="font-color-block" style="background: {{ presentation.font_color_background }}"
                              data-color="{{ colors.0.code }}">
                             <div class="star_span">
-                                <svg width="41" height="41" viewBox="0 0 41 41" fill="none"
+                                <svg width="34" height="34" viewBox="0 0 41 41" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path d="M20.5 0L24.7038 16.2962L41 20.5L24.7038 24.7038L20.5 41L16.2962 24.7038L0 20.5L16.2962 16.2962L20.5 0Z"
                                           fill="{{ colors.0.code }}"/>
                                 </svg>
-                                <p class="font-color-header">FONTS</p>
+                                <p class="font-color-header">Fonts</p>
                             </div>
                             <div class="fonts-container">
                                 {% for font in fonts %}
                                     <div class="fonts-item" id="font_{{ font.id }}" data-font-id="{{ font.id }}">
                                         <span class="Aa">Aa</span>
-                                        <span class="font-name" data-color="{{ colors.0.code }}">{{ font.name }}</span>
+                                        <span class="font-name" id="font_{{ font.id }}_name" data-color="{{ colors.0.code }}">{{ font.name }}</span>
                                     </div>
                                 {% endfor %}
                             </div>
 
-                            <div class="">
+                            <div class="colors-container">
                                 <div class="star_span">
-                                    <svg width="41" height="41" viewBox="0 0 41 41" fill="none"
+                                    <svg width="34" height="34" viewBox="0 0 41 41" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path d="M20.5 0L24.7038 16.2962L41 20.5L24.7038 24.7038L20.5 41L16.2962 24.7038L0 20.5L16.2962 16.2962L20.5 0Z"
                                               fill="{{ colors.0.code }}"/>
                                     </svg>
-                                    <p class="font-color-header">COLORS</p>
+                                    <p class="font-color-header">Colors</p>
                                 </div>
-                                <div class="colors-container">
+                                <div class="colors-items-container">
                                     {% for color in colors %}
                                         <div class="color-item-container"
                                              data-color="{{ colors.0.code }}"
@@ -110,7 +110,7 @@
                         <div class="benefits-container">
                             {% for benefit in benefits %}
                                 <div class="star_span">
-                                    <svg width="41" height="41" viewBox="0 0 41 41" fill="none"
+                                    <svg width="34" height="34" viewBox="0 0 41 41" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path d="M20.5 0L24.7038 16.2962L41 20.5L24.7038 24.7038L20.5 41L16.2962 24.7038L0 20.5L16.2962 16.2962L20.5 0Z"
                                               fill="{{ colors.0.code }}"/>

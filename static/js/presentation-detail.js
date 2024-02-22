@@ -22,12 +22,19 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => response.json())
             .then(data => {
                 const fontUrl = data.font_url;
+                let nameFontUrl = data.description_font_url;
+                if (!data.description_font_url) {
+                    nameFontUrl = fontUrl
+                }
                 const font = new FontFace(fontFamilyName, `url(${fontUrl})`);
-                return font.load();
+                const nameFont = new FontFace(`${fontFamilyName}_name`, `url(${nameFontUrl})`);
+                return Promise.all([font.load(), nameFont.load()]);
             })
-            .then(loadedFont => {
+            .then(([loadedFont, descriptionFont]) => {
                 document.fonts.add(loadedFont);
                 document.getElementById(elementId).style.fontFamily = `'${fontFamilyName}', sans-serif`;
+                document.fonts.add(descriptionFont);
+                document.getElementById(`${elementId}_name`).style.fontFamily = `'${fontFamilyName}_name', sans-serif`;
             })
             .catch(error => {
                 return
@@ -76,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let previousZIndex = 500
     let previousMarginLeft = 0;
 
-    colors.forEach(function(color, index) {
+    colors.forEach(function (color, index) {
         if (index > 0) {
             let zIndex = previousZIndex - 1;
             let marginLeft = previousMarginLeft + parseInt(color.offsetWidth || 0) - 30;
@@ -91,17 +98,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let articleContentTexts = document.querySelectorAll('.article-content-text');
 
-    articleContentTexts.forEach(function(articleContentText) {
+    articleContentTexts.forEach(function (articleContentText, index) {
         let articleLine = articleContentText.closest('.article-item').querySelector('.article-line');
         let header = articleContentText.closest('.article-item').querySelector('.article-content-header');
         let headerHeight = 0;
+        const infoLine = articleContentText.closest('.info-line')
+        let fontColors = document.querySelector('.font-color-block');
         if (articleLine) {
-            if (header.clientHeight > 60) {
-                headerHeight = header.clientHeight - 40;
+
+            let lineSize = infoLine.offsetHeight - (parseFloat(getComputedStyle(articleLine).marginTop))
+            articleLine.style.height = lineSize + 'px';
+            if (index === 0 && fontColors.offsetHeight === infoLine.offsetHeight) {
+                articleLine.style.height = lineSize - 2.5 * (parseFloat(getComputedStyle(infoLine).marginTop)) + 'px'
+            } else if (index === 0 && fontColors.offsetHeight < infoLine.offsetHeight) {
+                articleLine.style.height = infoLine.offsetHeight - (parseFloat(getComputedStyle(articleLine).marginTop))/1.5 + 'px' ;
             }
 
-            let lineHeight = articleContentText.offsetHeight + 60 + headerHeight;
-            articleLine.style.height = lineHeight + 'px';
+            // if (header.clientHeight > 60) {
+            //     headerHeight = header.clientHeight - 40;
+            // }
+            //
+            // let lineHeight = articleContentText.offsetHeight + 60 + headerHeight;
+            // articleLine.style.height = lineHeight + 'px';
+            //
+            // if (index === 0 && font_colors){
+            //     articleLine.style.height = font_colors.offsetHeight + articleContentText - 60 + 'px'
+            // }
         }
     });
 });

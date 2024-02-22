@@ -58,6 +58,7 @@ p {
 
 /*------------------------------------------------------*/
 .info-line {
+    margin-top: 15px;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -127,7 +128,7 @@ p {
     font-size: 24px;
     font-weight: 300;
     margin: 0;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     line-height: 1.6;
 }
 
@@ -141,15 +142,15 @@ p {
 }
 
 .color-item-container {
-    font-weight: 500;
-    font-size: 32px;
+    font-weight: 400;
+    font-size: 20px;
     border-radius: 45px;
     text-align: center;
-    width: 190px;
+    width: 200px;
     padding: 10px;
 }
 
-.colors-container {
+.colors-items-container {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -196,12 +197,13 @@ p {
 /*------------------------------------------------------*/
 
 .color-item-container-beautiful {
+    font-family: 'TT Travels', sans-serif;
     position: absolute;
-    font-weight: 500;
-    font-size: 32px;
+    font-weight: 450;
+    font-size: 20px;
     border-radius: 45px;
     text-align: center;
-    width: 190px;
+    width: 200px;
     padding: 10px;
     z-index: 500;
 }
@@ -210,12 +212,18 @@ p {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-items: center
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.colors-container {
+    margin-bottom: 20px;
 }
 
 .Aa {
     font-size: 35px;
     margin: 0;
+    height: 45px;
 }
 
 .fonts-item {

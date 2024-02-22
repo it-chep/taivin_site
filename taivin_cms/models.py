@@ -165,6 +165,7 @@ class Fonts(models.Model):
         default=1,
         verbose_name="Формат файла со шрифтами"
     )
+    description_font_file = models.FileField(verbose_name="Шрифт описания", upload_to=get_upload_fonts_path, null=True, blank=True)
     presentation = models.ForeignKey(
         to=Presentations,
         help_text="Презентация",
