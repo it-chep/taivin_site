@@ -4,10 +4,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "django-insecure-y35zu6o39@cis@_s6k#bmq42w!dlz(62stz+c%e@hk4j(c6vsj"
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ['http://taivin.ru', 'http://www.taivin.ru',
+                        'https://www.taivin.ru', 'https://taivin.ru', 'http://127.0.0.1', ]
 
+ALLOWED_HOSTS = ['taivin.ru', 'www.taivin.ru',
+                  '127.0.0.1', 'localhost',
+                  'localhost127.0.0.1[::1]']
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -91,16 +95,12 @@ TIME_ZONE = "Europe/Moscow"
 USE_I18N = True
 USE_TZ = True
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
-
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 COMPRESS_ROOT = STATIC_ROOT
-STATIC_URL = "static/"
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
