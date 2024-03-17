@@ -2,16 +2,12 @@ from pathlib import Path
 import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "django-insecure-y35zu6o39@cis@_s6k#bmq42w!dlz(62stz+c%e@hk4j(c6vsj"
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 DEBUG = False
 
-CSRF_TRUSTED_ORIGINS = ['http://taivin.ru', 'http://www.taivin.ru',
-                        'https://www.taivin.ru', 'https://taivin.ru', 'http://127.0.0.1', ]
-
-ALLOWED_HOSTS = ['taivin.ru', 'www.taivin.ru',
-                  '127.0.0.1', 'localhost',
-                  'localhost127.0.0.1[::1]']
+ALLOWED_HOSTS = ['0.0.0.0','taivin.ru', 'www.taivin.ru', 'localhost', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://taivin.ru', 'https://www.taivin.ru', 'http://127.0.0.1']
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -95,6 +91,12 @@ TIME_ZONE = "Europe/Moscow"
 USE_I18N = True
 USE_TZ = True
 
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+]
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 COMPRESS_ROOT = STATIC_ROOT
@@ -102,7 +104,31 @@ COMPRESS_ROOT = STATIC_ROOT
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
+MEDIA_ROOT = os.path.join(BASE_DIR, '/app/media/media')
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOG_DIR = os.path.join(BASE_DIR, 'logs')
+if not os.path.exists(LOG_DIR):
+    os.makedirs(LOG_DIR)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(LOG_DIR, 'django_errors.log'),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}
 
 CACHES = {
     'default': {
